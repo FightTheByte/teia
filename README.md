@@ -15,6 +15,7 @@
     - [How to run the project](#how-to-run-the-project)
     - [Windows](#windows)
     - [Linux](#linux)
+    - [Final Remarks](#final-remarks)
     - [License](#license)
     - [References](#references)
 
@@ -156,6 +157,15 @@ As the project matures, there is an aim to deliver extensive tutorials as to how
 2. Enter the following command ```sudo bash setup-run-on-start.sh``` and press enter
 3. Restart to confirm the application runs automatically.
 4. To stop the application running on startup, open a terminal with CTRL + ALT + T and type the following commands ```sudo systemctl stop teia``` press enter and then type ```sudo systemctl disable teia```
+
+### Final Remarks
+---
+
+The current state of this project is in alpha, while awaiting it's first user feedback. There are issues which have already been detected, such as stacking of audio plays, delayed start and switching. We aim to fix this as soon as possible. This project will be picked up by my current university group and I hope to expand the development support through social media exposure. Please bare with me as I'm learning a whole bunch of new languages and technology, my current experience before starting this project was full-stack react, javascript and SQL, Java and some Kotlin. For this project I had to design my ideas in javascript and manually transpile them into python. while also learning the linux system, bash, powershell and machine learning/tensorflow. I really believe in this project and the good it can offer the world. If anyone wants to help me develop this, your support and knowledge will be greatly appreciated. 
+
+Kind regards,
+
+Martin Cameron.
 
 ### License
 ---
