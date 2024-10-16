@@ -146,8 +146,8 @@ def caption_inference(frame):
 # Unified camera loop function with mode switching
 def startCameraLoop(interval = 5):
     previous_inference = []
-    global i
     while True:
+        global i
         if(i == 0):
             interval = 5
         time.sleep(interval)

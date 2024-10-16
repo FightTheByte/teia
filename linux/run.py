@@ -12,7 +12,7 @@ from PIL import Image
 from pynput import keyboard
 
 # init global variables
-i = 0  
+i = 1  
 audio_thread = None
 
 # Initialize model and labels
@@ -50,7 +50,8 @@ def process_image(image):
     return image
 
 # Inference function
-def inference(frame, previous_inference):
+def inference(frame, previous_inference, interval):
+    time.sleep(interval)
     # Process image and get input/output
     input = process_image(frame)
     input_info = ort_session.get_inputs()[0]
@@ -99,7 +100,8 @@ def inference(frame, previous_inference):
 
     return previous_inference
 
-def caption_inference(frame):
+def caption_inference(frame, interval):
+    time.sleep(interval)
     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     image = Image.fromarray(image)
      
@@ -142,11 +144,8 @@ def caption_inference(frame):
 
 # Camera loop function with mode switching
 def startCameraLoop(interval = 5, previous_inference = []):
-    global i
     while True:
-        if(i == 0):
-            interval = 5
-        time.sleep(interval)
+        global i
         ret, frame = vid.read()
         if not ret:
             print("Failed to grab frame")
@@ -155,18 +154,29 @@ def startCameraLoop(interval = 5, previous_inference = []):
         # Switch between inference modes
         if i == 0:
             interval = 5
-            previous_inference = inference(frame, previous_inference)
+            previous_inference = inference(frame, previous_inference, interval)
         elif i == 1:
             interval = 40
-            caption_inference(frame)
+            caption_inference(frame, interval)
+        elif i == 2:
+            interval = 5
+            time.sleep(interval)
+
 
        
 # Set key listener
 def on_press(key):
     global i
     if key == keyboard.Key.media_play_pause:
-        i = 1 - i  # Toggle between 0 and 1
-        print(f"Switched mode to {'Caption Inference' if i == 1 else 'Regular Inference'}")
+        i = (i + 1)%3
+        if i == 0:
+            play_audio_non_blocking('path.wav')
+        if i == 1:
+            play_audio_non_blocking('caption.wav')
+        if i == 2:
+            play_audio_non_blocking('silent.wav')
+          
+
 
 listener = keyboard.Listener(on_press=on_press)
 listener.start()
