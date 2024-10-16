@@ -37,7 +37,7 @@ While developing this project it became clear that the user may also want to hav
 
 Considering the user profile, we suggest a bone conduction ear piece so as to not reduce environmental sound reaching the user. The path finding and descriptive modes are switched using the play pause button on the sound device. 
 
-This project can be run on a ubuntu 20.04 laptop, from a backpack and using a external webcam. This webcam can be fitted in any way deemed comfortable by the user. Wether this be head, shoulder or chest fitted. We leave this to the user and those setting up the visual aid. The project is envisioned to run on as many devices as possible. 
+This project can be run on a ubuntu 20.04 laptop, from a backpack and using a external webcam. This webcam can be fitted in any way deemed comfortable by the user. Wether this be head, shoulder or chest fitted. We leave this to the user and those setting up the visual aid. The project is envisioned to run on as many devices as possible. Teia does not aim to replace conventional aides but rather supplement existing primary aides.
 
 ## Technology implementation
 
@@ -169,22 +169,3 @@ This project is licensed under the Creative Commons Attribution-NonCommercial 4.
 Aydogan G. (n.d), *PaliGemma Fine-tuned for Long Captioning for Stable Diffusion 3*, [online]. Available from <https://huggingface.co/spaces/gokaygokay/SD3-Long-Captioner> [16 October 2024]
 
 
-Music by https://www.bensound.com
-License code: LCHIFS4ONX1HJWWS
-
-Music I use: Bensound.com
-License code: CYXUSHRCQMUGQZVT
-
-Photo by Shane Aldendorff: https://www.pexels.com/photo/a-man-riding-a-bicycle-6128189/
-
-Video by MART  PRODUCTION: https://www.pexels.com/video/elderly-man-walking-down-the-stairs-8322739/
-
-<a href="https://www.flaticon.com/free-icons/ai" title="ai icons">Ai icons created by Blackonion02 - Flaticon</a>
-
-<a href="https://www.flaticon.com/free-icons/usb" title="usb icons">Usb icons created by AbtoCreative - Flaticon</a>`
-
-<a href="https://www.flaticon.com/free-icons/mac" title="mac icons">Mac icons created by Kalashnyk - Flaticon</a>
-
-Raspberry Pi A+ by fredley from <a href="https://thenounproject.com/browse/icons/term/raspberry-pi-a/" target="_blank" title="Raspberry Pi A+ Icons">Noun Project</a> (CC BY 3.0)
-
-<a href="https://www.flaticon.com/free-icons/school" title="school icons">School icons created by Freepik - Flaticon</a>
