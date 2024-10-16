@@ -69,7 +69,7 @@ Diagram and step-by-step description of the flow of our solution:
 
 ### Solution demo video
 
-[![Watch the video](https://raw.githubusercontent.com/Liquid-Prep/Liquid-Prep/main/images/readme/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://www.youtube.com/watch?v=KBFQibEL9nY)
 
 ### Project development roadmap
 
