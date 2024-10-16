@@ -12,7 +12,7 @@ from PIL import Image
 from pynput import keyboard
 
 # init global variables
-i = 2  
+i = 1  
 audio_thread = None
 
 # Initialize model and labels
