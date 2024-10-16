@@ -1,0 +1,7 @@
+numpy==1.24.4
+opencv-python==4.10.0.84
+simpleaudio==1.0.4
+onnxruntime==1.19.2
+torch==2.4.1
+pillow==10.4.0
+pynput==1.7.7
