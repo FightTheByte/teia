@@ -147,14 +147,10 @@ def caption_inference(frame):
 
         play_audio(r'{}\output2.wav'.format(file_path))
 
-# Unified camera loop function with mode switching
-def startCameraLoop(interval = 5):
-    previous_inference = []
+# Camera loop function with mode switching
+def startCameraLoop(interval = 5, previous_inference = []):
     while True:
         global i
-        if(i == 0):
-            interval = 5
-        time.sleep(interval)
         ret, frame = vid.read()
         if not ret:
             print("Failed to grab frame")
@@ -163,18 +159,30 @@ def startCameraLoop(interval = 5):
         # Switch between inference modes
         if i == 0:
             interval = 5
-            previous_inference = inference(frame, previous_inference)
+            previous_inference = inference(frame, previous_inference, interval)
         elif i == 1:
             interval = 40
-            caption_inference(frame)
+            caption_inference(frame, interval)
+        elif i == 2:
+            interval = 5
+            time.sleep(interval)
 
 
-# Define event handler
+       
+# Set key listener
 def on_press(key):
     global i
     if key == keyboard.Key.media_play_pause:
-        i = 1 - i 
-        print(f"Switched mode to {'Caption Inference' if i == 1 else 'Regular Inference'}")
+        i = (i + 1)%3
+        if i == 0:
+            path = r'{}\path.wav'.format(file_path)
+            play_audio(path)
+        if i == 1:
+            path = r'{}\caption.wav'.format(file_path)
+            play_audio(path)
+        if i == 2:
+            path = r'{}\silent.wav'.format(file_path)
+            play_audio(path)
 
 # Init event listener
 listener = keyboard.Listener(on_press=on_press)
