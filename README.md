@@ -70,7 +70,7 @@ Diagram and step-by-step description of the flow of our solution:
 
 ### Solution demo video
 
-[![Watch the video]](https://youtu.be/KBFQibEL9nY?si=foworQjkoMpNfZw4)
+https://github.com/user-attachments/assets/de416b8a-bda4-49d7-9434-ce452605e57c
 
 ### Project development roadmap
 
