@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import os
 import time
 import copy
 import requests
@@ -30,28 +31,26 @@ processor = AutoProcessor.from_pretrained(model_id)
 vid = cv2.VideoCapture(0)
 
 #audio interface
-def play_audio_non_blocking(audio_file):
+def play_audio(audio_file):
     global audio_thread
 
     def play_audio():
         wave_obj = sa.WaveObject.from_wave_file(audio_file)
         play_obj = wave_obj.play()
-        play_obj.wait_done()  # Blocking inside the thread so it doesn't block the main loop
+        play_obj.wait_done() 
 
-    # If an audio thread is already running, wait for it to finish
     if audio_thread and audio_thread.is_alive():
-        audio_thread.join()  # Wait for the current audio to finish
+        audio_thread.join()  
 
-    # Create a new thread for playing the next audio
     audio_thread = threading.Thread(target=play_audio)
     audio_thread.start()
 
 # Process frame
 def process_image(image):
-    image = cv2.resize(image, (400, 400))  # Resize to the expected dimensions
-    image = image.astype(np.float32) / 255.0  # Normalize
-    image = np.expand_dims(image, axis=0)  # Add batch dimension
-    image = np.transpose(image, (0, 2, 1, 3))  # Change to (1, height, width, channels)
+    image = cv2.resize(image, (400, 400))  
+    image = image.astype(np.float32) / 255.0  
+    image = np.expand_dims(image, axis=0)  
+    image = np.transpose(image, (0, 2, 1, 3)) 
     return image
 
 # Inference function
@@ -94,9 +93,10 @@ def inference(frame, previous_inference):
             )
             
             if response.status_code == 200:
-                with open('output.wav', 'wb') as file:
+                path = r'{}\output.wav'.format(file_path)
+                with open(path, 'wb') as file:
                     file.write(response.content)
-                play_audio_non_blocking('output.wav')
+                play_audio('output.wav')
             else:
                 print("Error: Failed to synthesize audio")
 
@@ -116,7 +116,7 @@ def caption_inference(frame):
     with torch.inference_mode():
         generation = caption_model.generate(
             **model_inputs,
-            max_new_tokens=250,  # Adjusted to limit the number of tokens
+            max_new_tokens=250,  
             do_sample=False,
             repetition_penalty=1.2 
         )
@@ -138,13 +138,14 @@ def caption_inference(frame):
             }
         )
         if response.status_code == 200:
-            with open(r'{}\output2.wav'.format(file_path), 'wb') as file:
+            path = r'{}\output2.wav'.format(file_path)
+            with open(path, 'wb') as file:
                 file.write(response.content)
             print("Audio synthesized successfully.")
         else:
             print(f"Error in TTS request: {response.status_code}")
 
-        play_audio_non_blocking(r'{}\output2.wav'.format(file_path))
+        play_audio(r'{}\output2.wav'.format(file_path))
 
 # Unified camera loop function with mode switching
 def startCameraLoop(interval = 5):
@@ -157,7 +158,7 @@ def startCameraLoop(interval = 5):
         ret, frame = vid.read()
         if not ret:
             print("Failed to grab frame")
-            break  # Exit loop if frame capture fails
+            break  
 
         # Switch between inference modes
         if i == 0:
@@ -168,18 +169,18 @@ def startCameraLoop(interval = 5):
             caption_inference(frame)
 
 
-
+# Define event handler
 def on_press(key):
     global i
     if key == keyboard.Key.media_play_pause:
-        i = 1 - i  # Toggle between 0 and 1
+        i = 1 - i 
         print(f"Switched mode to {'Caption Inference' if i == 1 else 'Regular Inference'}")
 
+# Init event listener
 listener = keyboard.Listener(on_press=on_press)
 listener.start()
 
 # Start the camera loop
-
 startCameraLoop()
 
 vid.release()
