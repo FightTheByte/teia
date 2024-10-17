@@ -4,7 +4,7 @@ $user = [Environment]::UserName
 
 Start-Process -FilePath "C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
-$file_path = "C:\Users\${user}\Desktop\teia\windows"
+$file_path = "C:\Users\${user}\OneDrive\Desktop\teia\windows"
 
 
    # Check if Docker is ready
