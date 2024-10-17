@@ -46,6 +46,7 @@ def play_audio_non_blocking(audio_file):
     audio_thread = threading.Thread(target=play_audio)
     audio_thread.start()
 
+# Process frame
 def process_image(image):
     image = cv2.resize(image, (400, 400))  # Resize to the expected dimensions
     image = image.astype(np.float32) / 255.0  # Normalize
@@ -102,6 +103,8 @@ def inference(frame, previous_inference):
         previous_inference = copy.deepcopy(hits)
 
     return previous_inference
+
+# Caption function
 def caption_inference(frame):
     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     image = Image.fromarray(image)
