@@ -115,6 +115,8 @@ As the project matures, there is an aim to deliver extensive tutorials as to how
 ### Windows
 ---
 
+*The cloned folder must be placed on the desktop for the pathing to be correct - this will be changed in the future*
+
 *For a demonstration*
 
 1. Visit https://www.ibm.com/account/reg/us-en/signup?formid=urx-51754 to signup for Watson Text To Speech (No Card Needed).
@@ -129,9 +131,14 @@ As the project matures, there is an aim to deliver extensive tutorials as to how
 
 *This will put the application into headless mode, this means it will automatically start when the laptop is turned on*
 
-1. Start setup-run-on-startup.exe.
-2. Restart to confirm the application runs automatically (There is a noticable delay of 3-5 minutes, due to the application needing windows to complete it's startup initialisation for any sound drivers and other dependencies).
-3. To stop the application running on startup run remove-run-on-startup.exe.
+- If you don't have OneDrive then follow this section
+  1. Start setup-run-on-startup.exe.
+  2. Restart to confirm the application runs automatically (There is a noticable delay of 3-5 minutes, due to the application needing windows to complete it's startup initialisation for any sound drivers and other dependencies).
+  3. To stop the application running on startup run remove-run-on-startup.exe.
+- If you have OneDrive then follow this section
+  1. Start setup-run-on-startup-onedrive.exe.
+  2. Restart to confirm the application runs automatically (There is a noticable delay of 3-5 minutes, due to the application needing windows to complete it's startup initialisation for any sound drivers and other dependencies).
+  3. To stop the application running on startup run remove-run-on-startup-onedrive.exe. 
 
 ### Linux
 ---
