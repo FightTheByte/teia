@@ -34,20 +34,20 @@ def play_audio_non_blocking(audio_file):
     def play_audio():
         wave_obj = sa.WaveObject.from_wave_file(audio_file)
         play_obj = wave_obj.play()
-        play_obj.wait_done()  # Blocking inside the thread so it doesn't block the main loop
+        play_obj.wait_done() 
 
     if audio_thread and audio_thread.is_alive():
-        audio_thread.join()  # Wait for the current audio to finish
+        audio_thread.join()  
 
     audio_thread = threading.Thread(target=play_audio)
     audio_thread.start()
 
 # Process frame
 def process_image(image):
-    image = cv2.resize(image, (400, 400))  # Resize to the expected dimensions
-    image = image.astype(np.float32) / 255.0  # Normalize
-    image = np.expand_dims(image, axis=0)  # Add batch dimension
-    image = np.transpose(image, (0, 2, 1, 3))  # Change to (1, height, width, channels)
+    image = cv2.resize(image, (400, 400))  
+    image = image.astype(np.float32) / 255.0  
+    image = np.expand_dims(image, axis=0)  
+    image = np.transpose(image, (0, 2, 1, 3)) 
     return image
 
 # Inference function
@@ -76,7 +76,8 @@ def inference(frame, previous_inference, interval):
 
         if playback:
             playthis = ' '.join(playback)
-
+            
+            # Make a call to Watson for embed Text to Speech
             response = requests.post(
                 'http://localhost:1080/text-to-speech/api/v1/synthesize',
                 json={
@@ -122,7 +123,8 @@ def caption_inference(frame, interval):
         playthis = processor.decode(generation, skip_special_tokens=True)
 
         print(f"Generated caption: {playthis}")
-
+        
+        # Make a call to Watson for embed Text to Speech
         response = requests.post(
             'http://localhost:1080/text-to-speech/api/v1/synthesize',
             json={
