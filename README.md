@@ -49,6 +49,12 @@ This project can be run on a ubuntu 20.04 laptop, from a backpack and using a ex
 
 [Free trial link](https://www.ibm.com/account/reg/us-en/signup?formid=urx-51754)
 
+*Example of Where Watson For Embed Text To Speech is used*:
+
+![](watson-example.png)
+![](watson-example2.png)
+![](watson-example3.png)
+
 
 ### Solution architecture
 
@@ -94,7 +100,7 @@ In the future we plan to...
 
 
 
-![Roadmap](./roadmap.png)
+![Roadmap](./roadmap-teia.png)
 
 ## Additional details
 
