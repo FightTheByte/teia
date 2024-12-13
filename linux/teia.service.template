@@ -1,0 +1,14 @@
+[Unit]
+Description=Teia visual impairment aid
+After=network.target
+
+[Service]
+User={{username}}
+WorkingDirectory={{install_path}}/linux
+ExecStart=/bin/sh -c 'cd home/{{username}}/teia/common && docker run -d --rm -it -env ACCEPT_LICENSE=true --publish 1080:1080 tts-standalone && source /home/{{username}}/miniconda3/etc/profile.d/conda.sh && conda activate teia && python3 ./run.py'
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,32 @@
+{
+  "allowDashboard": false,
+  "anonymizeLogs": false,
+  "baseModelsSURL": {
+    "service": "localPath",
+    "urlSuffix": "var/catalog.json"
+  },
+  "clusterGroups": {
+    "default": {
+      "service_type": "text-to-speech",
+      "component": "runtime",
+      "group": "default",
+      "models": [
+        "en-US_MichaelV3Voice",
+	"fr-CA_LouiseV3Voice",
+	"en-GB_KateV3Voice"
+      ]
+    }
+  },
+  "defaultTTSVoice": "en-GB_KateV3Voice",
+  "defaultVerbosity": "INFO",
+  "meteringEnabled": true,
+  "requireCookies": false,
+  "setCookies": false,
+  "serviceDependencies": {
+    "baseModelsStore": {
+      "type": "UrlService",
+      "healthCheckSuffix": "/",
+      "baseUrl": "http://127.0.0.1:3333/"
+    }
+  }
+}
