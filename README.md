@@ -5,9 +5,7 @@
     - [Project Goal](#project-goal)
     - [How our technology solution can help](#how-our-technology-solution-can-help)
     - [Our idea](#our-idea)
-  - [Technology implementation](#technology-implementation)
-    - [IBM Watson product used](#ibm-watson-product-used)
-    - [Solution architecture](#solution-architecture)
+  -[Solution architecture](#solution-architecture)
   - [Presentation materials](#presentation-materials)
     - [Solution demo video](#solution-demo-video)
     - [Project development roadmap](#project-development-roadmap)
@@ -94,7 +92,7 @@ As the project matures, there is an aim to deliver extensive tutorials as to how
 
 **The path model is set to inference every 5 seconds and the description is set to inference every 40 seconds, this will be adjusted in the future depending on our users preference. The path model will not repeat the same labels detected on the previous inference, to mitigate the same inference label being played over and over. Only newly detected labels will be played.**
 
-**The Installation and running instructions are currently out of date, due to the rapid development, the many projects I'm working on and my engagement with university. I intend to update the documentation in the summer, when IO ahve time. Sorry for any inconvience**
+**The Installation and running instructions are currently out of date, due to the rapid development, the many projects I'm working on and my engagement with university. I intend to update the documentation in the summer, when I have time. Sorry for any inconvience**
 
 ### Windows
 ---
