@@ -40,21 +40,6 @@ Considering the user profile, we suggest a bone conduction ear piece so as to no
 
 This project can be run on a ubuntu 20.04 laptop, from a backpack and using a external webcam. This webcam can be fitted in any way deemed comfortable by the user. Wether this be head, shoulder or chest fitted. We leave this to the user and those setting up the visual aid. The project is envisioned to run on as many devices as possible. Teia does not aim to replace conventional aides but rather supplement existing primary aides.
 
-## Technology implementation
-
-### IBM Watson product used
-
-
-[IBM Watson speech libraries for embed](https://www.ibm.com/products/speech-embed-libraries?) - the interface that connects the model outputs to the user, through wav generation, allowing the application to have an accessible human-computer interaction.
-
-[Free trial link](https://www.ibm.com/account/reg/us-en/signup?formid=urx-51754)
-
-*Example of Where Watson For Embed Text To Speech is used*:
-
-![](watson-example.png)
-![](watson-example2.png)
-![](watson-example3.png)
-
 
 ### Solution architecture
 
@@ -84,22 +69,11 @@ https://github.com/user-attachments/assets/de416b8a-bda4-49d7-9434-ce452605e57c
 
 The project currently does the following things.
 
-- Runs on Windows 11 and Ubuntu 20.04
+- Runs on Windows 11, Windows 10 and Ubuntu 20.04
 - Presents user with an alpha path finding model
 - Presents the user with a mature descriptive model
 - Implements an accessible Human-computer interface using Watson IBM text to speech
 - Runs as a startup service
-
-In the future we plan to...
- 
- - ~~Add a silent mode, currently the MVP cycles between the two modes but there should be the option to have no output. This is a priority user experience update that will be done shortly~~
- - Put time and investment into building our bespoke path finding model. This will primarily be an effort of collecting images and categorising them for a multi-label dataset.
- - Work with IBM to create an AARM64 architecture Watson text to speech container so we can port the project into small embedded AI platforms. 
- - Try to port the project into a mobile application, to test using 4g or 5g to run live cloud inference and testing the response time. 
- - Develop the project into maturation using Rapid Appilcation Development, such that the user profile will be in close collaboration with the project
- - Bring the project to all tensor enabled devices, such that the user can implement the solution with any AI enabled device
- - Conduct extensive optimisation, meeting the previous goal of compatible device ubiquity
-
 
 
 ![Roadmap](./roadmap-teia.png)
@@ -108,7 +82,7 @@ In the future we plan to...
 
 ### How to run the project
 
-The Project currently has two versions, one for Ubuntu 20.04 and the other for Windows 11 (Though this may work on Windows 10 but has not been tested and confirmed to do so)
+The Project currently has two versions, one for Linux and the other for Windows (Though this may work on Windows 10 but has not been tested and confirmed to do so)
 
 **Important**
 
@@ -119,6 +93,8 @@ How the webcam is fastened to the user will be left to the person setting up the
 As the project matures, there is an aim to deliver extensive tutorials as to how this may be done, with consideration to potentially including 3d printing. Though this could be community driven, depending on the support attained from my fellow developers. 
 
 **The path model is set to inference every 5 seconds and the description is set to inference every 40 seconds, this will be adjusted in the future depending on our users preference. The path model will not repeat the same labels detected on the previous inference, to mitigate the same inference label being played over and over. Only newly detected labels will be played.**
+
+**The Installation and running instructions are currently out of date, due to the rapid development, the many projects I'm working on and my engagement with university. I intend to update the documentation in the summer, when IO ahve time. Sorry for any inconvience**
 
 ### Windows
 ---
